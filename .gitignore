@@ -1,0 +1,9 @@
+
+# Virtual Environment  Files
+venv
+
+#Cache
+cache
+
+#Environment Variables
+.env
