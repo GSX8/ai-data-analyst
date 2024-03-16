@@ -127,3 +127,239 @@ result = {'type': 'dataframe', 'value': most_expensive_car_info}
 502  84900  mercedes-benz  sl-class  2017  clean vehicle    25302  silver    wddjk7ea3hf044968  167607883  florida     usa  2 days left}
 2024-03-13 23:42:35 [INFO] Executed in: 3.122797966003418s
 2024-03-13 23:42:35 [INFO] Executing Step 6: ResultParsing
+2024-03-17 02:13:33 [INFO] Question: most expensive car
+2024-03-17 02:13:33 [INFO] Running PandasAI with openai LLM...
+2024-03-17 02:13:33 [INFO] Prompt ID: 660ef4eb-e889-4c83-9859-9ab3d1c8366b
+2024-03-17 02:13:33 [INFO] Executing Step 0: CacheLookup
+2024-03-17 02:13:33 [INFO] Executing Step 1: PromptGeneration
+2024-03-17 02:13:33 [INFO] Using prompt: <dataframe>
+dfs[0]:2499x12
+price,brand,model,year,title_status,mileage,color,vin,lot,state,country,condition
+6300,toyota,cruiser,2008,clean vehicle,274117,black,  jtezu11f88k007763,159348797,new jersey, usa,10 days left
+5350,dodge,mpv,2018,clean vehicle,39590,silver,  3c4pdcgg5jt346413,167655728,georgia, usa,2 days left
+2899,ford,se,2011,clean vehicle,190552,silver,  2fmdk3gc4bbb02217,166951262,tennessee, usa,6 days left
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: most expensive car
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2024-03-17 02:13:33 [INFO] Executing Step 2: CodeGenerator
+2024-03-17 02:13:35 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-17 02:13:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+most_expensive_car = dfs[0][dfs[0]['price'] == dfs[0]['price'].max()]
+
+# Declare result var
+result = {"type": "dataframe", "value": most_expensive_car}
+            ```
+            
+2024-03-17 02:13:35 [INFO] Executing Step 3: CachePopulation
+2024-03-17 02:13:35 [INFO] Executing Step 4: CodeExecution
+2024-03-17 02:13:35 [INFO] 
+Code running:
+```
+most_expensive_car = dfs[0][dfs[0]['price'] == dfs[0]['price'].max()]
+result = {'type': 'dataframe', 'value': most_expensive_car}
+        ```
+2024-03-17 02:13:35 [INFO] Executing Step 5: ResultValidation
+2024-03-17 02:13:35 [INFO] Answer: {'type': 'dataframe', 'value':      price          brand     model  year   title_status  mileage   color                  vin        lot    state country    condition
+502  84900  mercedes-benz  sl-class  2017  clean vehicle    25302  silver    wddjk7ea3hf044968  167607883  florida     usa  2 days left}
+2024-03-17 02:13:35 [INFO] Executed in: 2.0995683670043945s
+2024-03-17 02:13:35 [INFO] Executing Step 6: ResultParsing
+2024-03-17 03:17:57 [INFO] Question: the most expensive car
+2024-03-17 03:17:57 [INFO] Running PandasAI with openai LLM...
+2024-03-17 03:17:57 [INFO] Prompt ID: ea658711-cd73-49dd-9d5d-916561e8160e
+2024-03-17 03:17:57 [INFO] Executing Step 0: CacheLookup
+2024-03-17 03:17:57 [INFO] Executing Step 1: PromptGeneration
+2024-03-17 03:17:57 [INFO] Using prompt: <dataframe>
+dfs[0]:2499x12
+price,brand,model,year,title_status,mileage,color,vin,lot,state,country,condition
+6300,toyota,cruiser,2008,clean vehicle,274117,black,  jtezu11f88k007763,159348797,new jersey, usa,10 days left
+2899,ford,se,2011,clean vehicle,190552,silver,  2fmdk3gc4bbb02217,166951262,tennessee, usa,6 days left
+5350,dodge,mpv,2018,clean vehicle,39590,silver,  3c4pdcgg5jt346413,167655728,georgia, usa,2 days left
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: the most expensive car
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2024-03-17 03:17:57 [INFO] Executing Step 2: CodeGenerator
+2024-03-17 03:17:58 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-17 03:17:58 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+most_expensive_car = max(dfs[0]['price'])
+result = {"type": "string", "value": f"The most expensive car is priced at ${most_expensive_car}."}
+            ```
+            
+2024-03-17 03:17:58 [INFO] Executing Step 3: CachePopulation
+2024-03-17 03:17:58 [INFO] Executing Step 4: CodeExecution
+2024-03-17 03:17:58 [INFO] 
+Code running:
+```
+most_expensive_car = max(dfs[0]['price'])
+result = {'type': 'string', 'value': f'The most expensive car is priced at ${most_expensive_car}.'}
+        ```
+2024-03-17 03:17:58 [INFO] Executing Step 5: ResultValidation
+2024-03-17 03:17:58 [INFO] Answer: {'type': 'string', 'value': 'The most expensive car is priced at $84900.'}
+2024-03-17 03:17:58 [INFO] Executed in: 1.5988826751708984s
+2024-03-17 03:17:58 [INFO] Executing Step 6: ResultParsing
+2024-03-17 03:18:42 [INFO] Question: the least expensive?
+2024-03-17 03:18:42 [INFO] Running PandasAI with openai LLM...
+2024-03-17 03:18:42 [INFO] Prompt ID: 08c08bf7-65b6-4988-ba7a-eb67e54d88a1
+2024-03-17 03:18:42 [INFO] Executing Step 0: CacheLookup
+2024-03-17 03:18:42 [INFO] Executing Step 1: PromptGeneration
+2024-03-17 03:18:42 [INFO] Using prompt: <dataframe>
+dfs[0]:2499x12
+price,brand,model,year,title_status,mileage,color,vin,lot,state,country,condition
+5350,dodge,mpv,2018,clean vehicle,39590,silver,  3c4pdcgg5jt346413,167655728,georgia, usa,2 days left
+2899,ford,se,2011,clean vehicle,190552,silver,  2fmdk3gc4bbb02217,166951262,tennessee, usa,6 days left
+6300,toyota,cruiser,2008,clean vehicle,274117,black,  jtezu11f88k007763,159348797,new jersey, usa,10 days left
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: the least expensive?
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2024-03-17 03:18:42 [INFO] Executing Step 2: CodeGenerator
+2024-03-17 03:18:44 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-17 03:18:44 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+least_expensive = min(dfs[0]['price'])
+result = {"type": "string", "value": f"The least expensive price is {least_expensive}."}
+            ```
+            
+2024-03-17 03:18:44 [INFO] Executing Step 3: CachePopulation
+2024-03-17 03:18:44 [INFO] Executing Step 4: CodeExecution
+2024-03-17 03:18:44 [INFO] 
+Code running:
+```
+least_expensive = min(dfs[0]['price'])
+result = {'type': 'string', 'value': f'The least expensive price is {least_expensive}.'}
+        ```
+2024-03-17 03:18:44 [INFO] Executing Step 5: ResultValidation
+2024-03-17 03:18:44 [INFO] Answer: {'type': 'string', 'value': 'The least expensive price is 0.'}
+2024-03-17 03:18:44 [INFO] Executed in: 1.8056013584136963s
+2024-03-17 03:18:44 [INFO] Executing Step 6: ResultParsing
+2024-03-17 03:23:14 [INFO] Question: which is the most expensive toyota car?
+2024-03-17 03:23:14 [INFO] Running PandasAI with openai LLM...
+2024-03-17 03:23:14 [INFO] Prompt ID: cb1a1fff-710c-4d80-b452-2b2270f2972d
+2024-03-17 03:23:14 [INFO] Executing Step 0: CacheLookup
+2024-03-17 03:23:14 [INFO] Executing Step 1: PromptGeneration
+2024-03-17 03:23:14 [INFO] Using prompt: <dataframe>
+dfs[0]:2499x12
+price,brand,model,year,title_status,mileage,color,vin,lot,state,country,condition
+2899,ford,se,2011,clean vehicle,190552,silver,  2fmdk3gc4bbb02217,166951262,tennessee, usa,6 days left
+5350,dodge,mpv,2018,clean vehicle,39590,silver,  3c4pdcgg5jt346413,167655728,georgia, usa,2 days left
+6300,toyota,cruiser,2008,clean vehicle,274117,black,  jtezu11f88k007763,159348797,new jersey, usa,10 days left
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: which is the most expensive toyota car?
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2024-03-17 03:23:14 [INFO] Executing Step 2: CodeGenerator
+2024-03-17 03:23:16 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-03-17 03:23:16 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+most_expensive_toyota = max(dfs[0][dfs[0]['brand'] == 'toyota']['price'])
+
+result = {"type": "string", "value": f"The most expensive Toyota car is priced at ${most_expensive_toyota}."}
+            ```
+            
+2024-03-17 03:23:16 [INFO] Executing Step 3: CachePopulation
+2024-03-17 03:23:16 [INFO] Executing Step 4: CodeExecution
+2024-03-17 03:23:16 [INFO] 
+Code running:
+```
+most_expensive_toyota = max(dfs[0][dfs[0]['brand'] == 'toyota']['price'])
+result = {'type': 'string', 'value': f'The most expensive Toyota car is priced at ${most_expensive_toyota}.'}
+        ```
+2024-03-17 03:23:16 [INFO] Executing Step 5: ResultValidation
+2024-03-17 03:23:16 [INFO] Answer: {'type': 'string', 'value': 'The most expensive Toyota car is priced at $6300.'}
+2024-03-17 03:23:16 [INFO] Executed in: 2.000624418258667s
+2024-03-17 03:23:16 [INFO] Executing Step 6: ResultParsing
