@@ -1,6 +1,6 @@
 import streamlit as st
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
 import pandas as pd
 from pandasai.llm import OpenAI
 from pandasai import SmartDataframe
@@ -27,7 +27,7 @@ def main():
         initial_sidebar_state='expanded',
     )
     container =st.container()
-    api_key = ""
+    st.session_state.api_key = ""
     st.session_state.api_key_valid = False
 
     with st.sidebar:
@@ -40,7 +40,7 @@ def main():
                 st.text("AI Powered Data Analyst")
         
 
-        api_token = st.text_input("Enter your OpenAI API token to get started.", value=st.session_state.api_key, type="password", placeholder="API Token")
+        api_token = st.text_input("Enter your OpenAI API token to get started.", value=st.session_state.api_key, type="password", placeholder="Open AI API Token")
         
         info = st.markdown("")
         if not api_token:
