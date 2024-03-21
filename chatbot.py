@@ -6,7 +6,8 @@ from pandasai.llm import OpenAI
 from pandasai import SmartDataframe
 from pandasai.responses.streamlit_response import StreamlitResponse
 import time
-
+from typing import Dict
+from parser.response_parser import CustomResponseParser
 # load_dotenv()
 # apiKey = os.getenv("OPENAI_API_KEY")
 
@@ -14,10 +15,10 @@ import time
 
 def response(df, prompt):
     llm = OpenAI(api_token=st.session_state.api_key)
-    sdf = SmartDataframe(df, config={"llm": llm, "verbose": True, "response_parser": StreamlitResponse})
+    sdf = SmartDataframe(df, config={"llm": llm, "verbose": True, "response_parser": CustomResponseParser})
     result=sdf.chat(prompt)
     return result
-
+# @st.cache_resource
 def main(): 
 
     st.set_page_config(
@@ -84,8 +85,21 @@ def main():
             
             result = response(data, prompt)
             with st.chat_message("assistant"):
-                st.write(result)
-            st.session_state.messages.append({"role":"assistant","content":result})
+                #st.write(result)
+                tmp = st.markdown(f"Analyzing, hold on pls...")
+                if isinstance(result, SmartDataframe):
+                    tmp.dataframe(result.dataframe)
+                    st.session_state.messages.append(
+                        {"role": "assistant", "content": result.dataframe, "type": "dataframe"})
+                elif isinstance(result, dict) and "type" in result and result["type"] == "plot":
+                    tmp.image(f"{result['value']}", use_column_width=True)
+                    
+                    st.session_state.messages.append(
+                        {"role": "assistant", "content": st.image(f"{result['value']}",use_column_width=True), "type": "plot"})
+                else:
+                    tmp.markdown(result)
+                    st.session_state.messages.append({"role": "assistant", "content": result})
+                # st.session_state.messages.append({"role":"assistant","content":result})
 
 if __name__ == '__main__':
     main()

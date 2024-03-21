@@ -8,4 +8,6 @@ cache
 #Environment Variables
 .env
 
-.pandasai.log
+/pandasai.log
+
+exports
