@@ -62,7 +62,14 @@ def main():
 
     st.header("🧑🏽‍💻 Your personal OpenAI-powered Data Analyst 📊📈",divider=True)
     st.text("Powered by Pandas AI & OpenAI API to provide you Analytics and Visulaization for your Data.")
-    # input_csv = st.file_uploader("Upload your CSV DataSet Below :",type=['csv'],label_visibility='collapsed')
+    # tab1, tab2 = st.tabs(["Chat", "Screenshots"])
+    # with tab2:
+    #     col1, col2 = st.columns(2)
+    #     with col1:
+    #         st.image("./assets/images/cars_per_year_bar.png")
+    #     with col2:
+    #         st.image("./assets/images/cars_per_year_bar.png")
+    
 
     if input_csv :
         st.info("CSV file Uploaded Successfully..!",icon='💹')
