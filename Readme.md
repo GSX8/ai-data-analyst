@@ -1,4 +1,4 @@
-## Chatbot
+## Doto - Pandas AI Powered Data Analyst Chatbot
 
 # Create Virtual Environment
 
@@ -6,18 +6,18 @@ python -m venv myenv
 
 # Activate the virtual environment
 
-    # Windows
+# Windows
 
-myenv\Scripts\activate
+    # myenv\Scripts\activate
 
-    # macOS and Linux
+# macOS and Linux
 
-source myenv/bin/activate
+     # source myenv/bin/activate
 
-# Install Dependencies:
+Install Dependencies:
 
-pip install -r requirements.txt
+    # pip install -r requirements.txt
 
-# Run Server:
+Run Server:
 
-streamlit run chatbot.py
+    # streamlit run chatbot.py
